@@ -36,7 +36,6 @@ const Chat: React.FC = () => {
   const [showPinnedPanel, setShowPinnedPanel] = useState(false);
   const [pinnedMessages, setPinnedMessages] = useState<Message[]>([]);
   const [longPressTimer, setLongPressTimer] = useState<NodeJS.Timeout | null>(null);
-  const [longPressedMessage, setLongPressedMessage] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<any>(null);
   const [theme, setTheme] = useState(
@@ -397,7 +396,7 @@ Click the 📝 button in the header to use these templates!`;
     if (longPressTimer) clearTimeout(longPressTimer);
     
     const timer = setTimeout(() => {
-      setLongPressedMessage(message.id || null);
+      // setLongPressedMessage(message.id || null);
       togglePinMessage(message);
     }, 500); // 500ms long press
 
